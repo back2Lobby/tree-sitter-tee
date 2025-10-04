@@ -118,7 +118,7 @@ module.exports = grammar({
 
     function_argument: ($) => choice(seq($.ident, ":", $.expr), $.expr),
 
-    type: () => "Int",
+    type: () => /[A-Z][a-zA-Z0-9_]*/,
   },
 });
 

@@ -1,0 +1,203 @@
+===================
+All syntax (so far)
+===================
+
+# variable declaration
+foo :: 4; # constants
+bar : Int = 35; # mutable
+
+# functions
+calc :: fun (~x, ~y: Int) Int {
+  z :: x / y;
+  z^2
+};
+
+calc(foo, bar);
+
+add :: fun (~num: Int, to other_num: Int) {
+  num + other_num
+};
+
+add(3, to: 4);
+
+returns_unit :: fun () { unit };
+
+---
+(source_file
+  (program
+    (statement
+      (discarded_expression
+        (expr
+          (variable_decl
+            (ident)
+            (expr
+              (int_literal)
+            )
+          )
+        )
+      )
+    )
+    (statement
+      (discarded_expression
+        (expr
+          (variable_decl
+            (ident)
+            (type)
+            (expr
+              (int_literal)
+            )
+          )
+        )
+      )
+    )
+    (statement
+      (discarded_expression
+        (expr
+          (variable_decl
+            (ident)
+            (expr
+              (function
+                (function_parameter
+                  (ident)
+                )
+                (function_parameter
+                  (ident)
+                  (type)
+                )
+                (type)
+                (statement
+                  (discarded_expression
+                    (expr
+                      (variable_decl
+                        (ident)
+                        (expr
+                          (infix
+                            (expr
+                              (ident)
+                            )
+                            (expr
+                              (ident)
+                            )
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+                (statement
+                  (expression
+                    (expr
+                      (infix
+                        (expr
+                          (ident)
+                        )
+                        (expr
+                          (int_literal)
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+    (statement
+      (discarded_expression
+        (expr
+          (func_call
+            (ident)
+            (function_argument
+              (expr
+                (ident)
+              )
+            )
+            (function_argument
+              (expr
+                (ident)
+              )
+            )
+          )
+        )
+      )
+    )
+    (statement
+      (discarded_expression
+        (expr
+          (variable_decl
+            (ident)
+            (expr
+              (function
+                (function_parameter
+                  (ident)
+                  (type)
+                )
+                (function_parameter
+                  (ident)
+                  (ident)
+                  (type)
+                )
+                (statement
+                  (expression
+                    (expr
+                      (infix
+                        (expr
+                          (ident)
+                        )
+                        (expr
+                          (ident)
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+    (statement
+      (discarded_expression
+        (expr
+          (func_call
+            (ident)
+            (function_argument
+              (expr
+                (int_literal)
+              )
+            )
+            (function_argument
+              (ident)
+              (expr
+                (int_literal)
+              )
+            )
+          )
+        )
+      )
+    )
+    (statement
+      (discarded_expression
+        (expr
+          (variable_decl
+            (ident)
+            (expr
+              (function
+                (statement
+                  (expression
+                    (expr
+                      (unit)
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)

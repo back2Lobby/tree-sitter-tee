@@ -14,7 +14,7 @@
         }
       ]
     },
-    "_comment": {
+    "comment": {
       "type": "TOKEN",
       "content": {
         "type": "SEQ",
@@ -679,7 +679,7 @@
   "extras": [
     {
       "type": "SYMBOL",
-      "name": "_comment"
+      "name": "comment"
     },
     {
       "type": "SYMBOL",

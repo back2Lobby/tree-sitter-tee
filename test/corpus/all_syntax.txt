@@ -24,6 +24,7 @@ returns_unit :: fun () { unit };
 
 ---
 (source_file
+  (comment)
   (program
     (statement
       (discarded_expression
@@ -37,6 +38,7 @@ returns_unit :: fun () { unit };
         )
       )
     )
+    (comment)
     (statement
       (discarded_expression
         (expr
@@ -50,6 +52,8 @@ returns_unit :: fun () { unit };
         )
       )
     )
+    (comment)
+    (comment)
     (statement
       (discarded_expression
         (expr

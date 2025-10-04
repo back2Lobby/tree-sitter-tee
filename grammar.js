@@ -22,14 +22,12 @@ const PREC = {
 module.exports = grammar({
   name: "tee",
 
-  // Only supporting # comments now, along with standard whitespace.
-  extras: ($) => [$._comment, $._whitespace],
+  extras: ($) => [$.comment, $._whitespace],
 
   rules: {
     source_file: ($) => optional($.program),
 
-    // ONLY supports # line comments as requested.
-    _comment: ($) => token(seq("#", /.*/)),
+    comment: ($) => token(seq("#", /.*/)),
 
     _whitespace: () => /\s/,
 

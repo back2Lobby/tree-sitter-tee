@@ -1,31 +1,39 @@
-# Instructions for Nvim
+# Instructions for Neovim
 
-- Paste following code into your init.lua to register the parser in treesitter
+- Paste following code into your `init.lua` to register the file type in Neovim
 
 ```lua
 
--- [[ Set up stuff for T Language ]]
+-- [[ Set up stuff for Tee Language ]]
 vim.filetype.add({
  extension = {
   tee = "tee",
  },
 })
-
-local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-
-parser_config.tee = {
- install_info = {
-  -- url = "https://github.com/back2Lobby/tree-sitter-tee",
-  url = "~/Learn/tree-sitter-tee/",
-  branch = "main",
-  files = { "src/parser.c" },
- },
- filetype = "tee",
- maintainers = { "@back2Lobby" },
-}
-
-vim.treesitter.language.register("tee", "tee")
 ```
 
-- Copy paste the queries folder into nvim config (if you already have it then just copy paste the queries/tee folder)
-- Reopen Nvim and run `TSInstall tee`
+- Add following in `init.lua` or `configs/autocmds.lua` if you are using LazyVim
+
+```lua
+vim.api.nvim_create_autocmd("User", {
+ pattern = "TSUpdate",
+ callback = function()
+  require("nvim-treesitter.parsers").tee = {
+   install_info = {
+    -- keep the line uncommented if you want to use git url to install the parser
+    url = "https://github.com/back2Lobby/tree-sitter-tee"
+    -- uncomment the line below if you wanna clone the repo locally
+    -- path = "~/Learn/tree-sitter-tee",
+    branch = "main",
+    files = { "src/parser.c" },
+    queries = "queries/neovim",
+   },
+  }
+ end,
+})
+```
+
+- If you don't have a queries/tee folder in the root of your Neovim configs, make
+  it. Now simply copy paste the contents of queries/neovim from this repo and
+  paste them in your queries/tee inside neovim configs directory.
+- Reopen Neovim and run `TSInstall tee`
